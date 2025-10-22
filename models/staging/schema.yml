@@ -18,9 +18,28 @@ models:
    columns:
      - name: listing_id
        description: "Canonical listing id (int)."
-       tests: [not_null, unique]
+       tests: 
+       - not_null 
+       - unique
      - name: listing_name
        description: "Listing title."
-       tests: [not_null]
+       tests: 
+       - not_null
      - name: list_price
        description: "Numeric price (cleaned from $/commas)."
+
+ - name: stg_calendar
+   description: "Staging model for calendar: one row per listing-date with typed fields."
+   columns:
+    - name: listing_id
+      description: "Cleaned listing id (integer)"
+      tests:
+      - not_null
+    - name: date
+      description: "Calendar date"
+      tests:
+        - not_null
+    - name: available
+      description: "Normalized boolean availability"
+    - name: price
+      description: "Nightly price as numeric"
