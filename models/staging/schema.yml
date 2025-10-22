@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 version: 2
 
@@ -26,3 +27,29 @@ models:
      - name: list_price
        description: "Numeric price (cleaned from $/commas)."
 
+=======
+version: 2
+
+sources:
+  - name: hubspot_raw
+    database: HUBSPOT_DB
+    schema: RAW
+    tables:
+      - name: LISTINGS_RAW
+      - name: CALENDAR_RAW
+      - name: GENERATED_REVIEWS_RAW
+      - name: AMENITIES_CHANGELOG_RAW
+
+models:
+  - name: stg_listings
+    description: "Staging model: cleans and types LISTINGS_RAW for downstream modeling."
+    columns:
+      - name: listing_id
+        description: "Canonical listing id (int)."
+        tests: [not_null, unique]
+      - name: listing_name
+        description: "Listing title."
+        tests: [not_null]
+      - name: list_price
+        description: "Numeric price (cleaned from $/commas)."
+>>>>>>> 1da5ed2b1aba584bcf619aac5e4533ad384253d4
