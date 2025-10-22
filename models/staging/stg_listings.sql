@@ -28,3 +28,4 @@ select
         else review_scores_rating
     end as review_scores_rating
 from raw
+
