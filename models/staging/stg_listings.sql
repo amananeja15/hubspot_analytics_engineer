@@ -4,6 +4,7 @@ with raw as (
   select * from {{ source('hubspot_raw', 'LISTINGS_RAW') }}
 )
 
+
 select
     nullif(regexp_replace(id, '[^0-9]', ''), '')::integer as listing_id,
   	nullif(regexp_replace(host_id, '[^0-9]', ''), '')::integer as host_id,
@@ -28,4 +29,3 @@ select
         else review_scores_rating
     end as review_scores_rating
 from raw
-
