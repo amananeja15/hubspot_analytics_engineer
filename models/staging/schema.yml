@@ -43,3 +43,25 @@ models:
       description: "Normalized boolean availability"
     - name: price
       description: "Nightly price as numeric"
+
+ - name: stg_reviews
+   description: "Staging model for generated reviews (clean date, numeric score, ids)."
+   columns:
+      - name: review_id
+        description: "Cleaned numeric review id (PK)."
+        tests:
+          - not_null
+          - unique
+
+      - name: listing_id
+        description: "FK to listings (cleaned)."
+        tests:
+          - not_null
+
+      - name: review_date
+        description: "Date of the review."
+        tests:
+          - not_null
+
+      - name: review_score
+        description: "Numeric review score (nullable if malformed)."
