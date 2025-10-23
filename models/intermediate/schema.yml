@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_amenities_exploded
+    description: "One row per listing × change_at × amenity, exploded from amenities_raw."
+    columns:
+      - name: listing_id
+        tests: 
+          - not_null
+      - name: change_at
+        tests: 
+          - not_null
+      - name: amenity
+        tests: 
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: [listing_id, change_at, amenity]
