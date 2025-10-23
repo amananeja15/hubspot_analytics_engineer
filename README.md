@@ -40,6 +40,10 @@ Marts
 dim_listings – core listing dimension with attributes, review metrics, and amenity flags
 fct_calendar_daily – daily fact table with price, availability, reservations, and revenue
 
+## 📈 Data Lineage (dbt)
+
+![dbt lineage](dbt_lineage.png)
+
 🧪 How to Run the Project
 
 Requirements:
