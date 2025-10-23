@@ -65,3 +65,24 @@ models:
 
       - name: review_score
         description: "Numeric review score (nullable if malformed)."
+
+ - name: stg_amenities_changelog
+   description: "Staging model that standardizes the amenities changelog events."
+   columns:
+      - name: listing_id
+        description: "Unique listing identifier for which amenities changed."
+        tests:
+          - not_null
+
+      - name: change_at
+        description: "Timestamp when the amenities change occurred."
+        tests:
+          - not_null
+      
+      - name: change_date
+        description: "Derived date from change_at for daily joins."
+        tests: 
+          - not_null      
+
+      - name: amenities_raw
+        description: "Raw JSON-like string of amenities at the time of change."
