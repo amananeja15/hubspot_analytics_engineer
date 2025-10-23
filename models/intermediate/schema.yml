@@ -16,3 +16,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: [listing_id, change_at, amenity]
+
+  - name: int_reviews_agg
+    description: "Per-listing review aggregates."
+    columns:
+      - name: listing_id
+        tests: 
+          - not_null 
+          - unique
+      - name: reviews_count
+      - name: avg_review_score
+      - name: last_review_date
