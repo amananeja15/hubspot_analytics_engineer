@@ -3,7 +3,6 @@ Question: Q3B – Maximum Possible Stay for Listings with Both Lockbox & First A
 Purpose: Compute the longest possible stay (same logic as Q3A) but only for listings that have BOTH 'lockbox' and 'first aid kit' amenities.
 Method: Filter listings to those with both amenities using the exploded amenities model, then run the same max-stay calculation.
 Source: int_amenities_exploded + stg_calendar
-Window: July 12th 2021 to July 11th 2022
 Notes: Expected to show a significantly shorter maximum stay vs Q3A.
 */
 
@@ -24,8 +23,7 @@ cal as (
   from HUBSPOT_DB.DBT_AANEJA.STG_CALENDAR c
   join amenity_listings a
     on a.listing_id = c.listing_id
-  where c.date between '2021-07-12' and '2022-07-11'
-    and c.available = true
+  where c.available = true
 ),
 runs as (
   select
