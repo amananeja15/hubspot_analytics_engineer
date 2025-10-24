@@ -3,7 +3,6 @@ Question: Q3A – Maximum Possible Stay Per Listing
 Purpose: Determine the longest possible stay per listing based on availability and owner min/max night rules within the defined window.
 Method: Identify consecutive available-day runs, cap them by the start date’s min/max rules, and select the longest valid stay per listing.
 Source: stg_calendar
-Window: July 12th 2021 to July 11th 2022
 Notes: Use gaps-and-islands logic to detect consecutive availability.
 */
 
@@ -15,8 +14,7 @@ with cal as (
     minimum_nights,
     maximum_nights
   from HUBSPOT_DB.DBT_AANEJA.STG_CALENDAR
-  where date between '2021-07-12' and '2022-07-11'
-    and available = true
+  where available = true
 ),
 runs as (
   select
