@@ -12,6 +12,7 @@ select
   	trim(host_name) as host_name,
     host_since,
   	host_location,
+    host_verifications as host_verifications_raw,
     coalesce(neighborhood, '') as neighborhood,
     property_type,
   	room_type,

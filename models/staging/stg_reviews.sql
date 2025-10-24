@@ -23,7 +23,7 @@ select
     when try_cast(review_score_v as numeric) is not null
       then try_cast(review_score_v as numeric)
     else null
-  end as review_score,
+  end as review_score
 from norm
 where review_id is NOT NULL
 and review_date is NOT NULL
